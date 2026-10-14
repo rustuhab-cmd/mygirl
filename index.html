@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff4f8">
+<title>Письмо для Марьям 💌</title>
+<style>
+:root{--pink:#ed9fbd;--deep:#6f2948;--cream:#fff8f5;--ink:#392633}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 15% 15%,#ffe3ed 0,transparent 35%),radial-gradient(circle at 90% 85%,#f8d9e8 0,transparent 32%),#fff8f5;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden}
+.card{width:min(100%,440px);text-align:center;background:#ffffffd9;border:1px solid #f4d4e1;border-radius:28px;padding:30px 24px;box-shadow:0 18px 55px #9c55731c;position:relative;overflow:hidden}
+.kicker{font-size:.75rem;letter-spacing:.18em;color:#a45b7b;font-weight:800}
+h1{font-size:clamp(2rem,8vw,2.8rem);line-height:1.08;margin:16px 0;color:var(--deep)}
+p{line-height:1.65;color:#735666}
+.envelope-wrap{height:170px;display:grid;place-items:center;margin:12px 0 4px}
+.envelope{font-size:104px;filter:drop-shadow(0 9px 8px #d18ba355);animation:bob 2.5s ease-in-out infinite;cursor:pointer;user-select:none}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+button{border:0;border-radius:999px;padding:14px 20px;font-size:1rem;font-weight:800;cursor:pointer;transition:transform .18s,filter .18s;min-height:48px}
+button:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.primary{background:linear-gradient(135deg,#f4b6cf,#e98eb5);color:#57233e;box-shadow:0 7px 18px #e8a1bf55}
+.secondary{background:#fff0f6;color:#8c4668;border:1px solid #f2ccdc}
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.hidden{display:none!important}
+.note{font-size:.83rem;color:#a17a8d;margin-top:18px}
+.heart{position:fixed;pointer-events:none;z-index:3;animation:rise 2.6s ease-out forwards;font-size:20px}
+@keyframes rise{from{transform:translateY(0) scale(.7);opacity:0}15%{opacity:1}to{transform:translateY(-110vh) rotate(22deg) scale(1.4);opacity:0}}
+.pill{display:inline-block;background:#fff0f6;border-radius:999px;padding:7px 12px;font-size:.82rem;color:#975371;margin-top:8px}
+input,select{width:100%;border:1px solid #edc8d8;border-radius:13px;padding:12px;background:#fffafd;color:var(--ink);font:inherit;margin-top:7px}
+label{display:block;text-align:left;font-size:.9rem;color:#80566b;margin:14px 0}
+.footer{font-size:.76rem;color:#b18b9e;margin-top:22px}
+</style>
+</head>
+<body>
+<main class="card">
+  <section id="screen1">
+    <div class="kicker">✦ ТОЛЬКО ДЛЯ МАРЬЯМ ✦</div>
+    <div class="envelope-wrap"><div class="envelope" aria-label="Открыть письмо">💌</div></div>
+    <h1>Марьям,<br>у меня вопрос…</h1>
+    <p>Кажется, нашим ночным разговорам пора получить продолжение в реальной жизни 😊</p>
+    <div class="pill">Одно маленькое приглашение от Бобби</div>
+    <div class="actions"><button class="primary" onclick="showScreen(2)">Открыть письмо 💗</button></div>
+    <div class="footer">Осторожно: внутри немного милоты</div>
+  </section>
+
+  <section id="screen2" class="hidden">
+    <div class="kicker">ЛИЧНОЕ СООБЩЕНИЕ ОТ БОББИ</div>
+    <div class="envelope-wrap" style="height:100px"><div style="font-size:68px">🌷</div></div>
+    <h1>Есть идея!</h1>
+    <p>Марьям, давай наконец увидимся, погуляем, посмеёмся и проверим, кто из нас первым начнёт улыбаться как дурак 😄</p>
+    <p>Обещаю хорошую компанию. А вот за отсутствие дождя не ручаюсь — ты помнишь нашу историю 😂</p>
+    <h2 style="color:#8d3f61;font-size:1.25rem">Пойдёшь со мной гулять? 🥹❤️</h2>
+    <div class="actions">
+      <button class="primary" onclick="showScreen(3); hearts()">Дааа, Бобби! ❤️</button>
+      <button class="secondary" onclick="showScreen(4)">Давай выберем день 👀</button>
+    </div>
+    <div class="footer">Без давления — главное, чтобы нам обоим было удобно 💞</div>
+  </section>
+
+  <section id="screen3" class="hidden">
+    <div style="font-size:70px;margin:12px">🥹💖</div>
+    <div class="kicker">МИССИЯ ПРИНЯТА</div>
+    <h1>УРААА!</h1>
+    <p>Тогда осталось выбрать день и место. Я уже официально начинаю готовиться к нашей прогулке 😌</p>
+    <p>И да: если я буду улыбаться как дурак — ты ничего не видела.</p>
+    <div class="actions"><button class="primary" onclick="showScreen(4)">Выбрать день вместе 📅</button></div>
+  </section>
+
+  <section id="screen4" class="hidden">
+    <div style="font-size:58px;margin:10px">📅✨</div>
+    <h1>Когда тебе удобно?</h1>
+    <p>Выбери вариант или напиши свой — подстроимся так, чтобы обоим было комфортно.</p>
+    <label>День встречи
+      <select id="day"><option>На этой неделе</option><option>На следующих выходных</option><option>В будний день</option><option>Давай решим вместе</option></select>
+    </label>
+    <label>Идея для прогулки
+      <select id="place"><option>Просто гулять и болтать</option><option>Кофе / чай и прогулка</option><option>Красивое место и фотографии</option><option>Сюрприз от Бобби 👀</option></select>
+    </label>
+    <div class="actions"><button class="primary" onclick="makeMessage()">Собрать ответ 💌</button></div>
+    <div id="result" class="hidden">
+      <p id="msg" style="background:#fff0f6;border-radius:16px;padding:14px"></p>
+      <button class="secondary" onclick="copyMessage()">Скопировать текст</button>
+    </div>
+    <div class="footer">P. S. Главное — сама встреча, а не идеальный план 💗</div>
+  </section>
+</main>
+<script>
+function showScreen(n){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById('screen'+n).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function hearts(){for(let i=0;i<22;i++){let h=document.createElement('span');h.className='heart';h.textContent=['💗','💕','✨','💖'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'vw';h.style.bottom='-30px';h.style.animationDelay=Math.random()*.9+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),3500)}}
+function makeMessage(){let d=document.getElementById('day').value,p=document.getElementById('place').value;document.getElementById('msg').textContent='Бобби, давай встретимся! 💗 По времени: '+d.toLowerCase()+'. План: '+p.toLowerCase()+'.';document.getElementById('result').classList.remove('hidden')}
+async function copyMessage(){let t=document.getElementById('msg').textContent;try{await navigator.clipboard.writeText(t);alert('Текст скопирован 💗')}catch(e){alert(t)}}
+</script>
+</body>
+</html>
